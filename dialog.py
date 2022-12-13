@@ -281,20 +281,20 @@ world.create_entity(Input({
     "down":[pg.K_DOWN]
 }))
 
+if __name__ == "main":
+    #Configure Options
+    world.create_entity(Options(screen, int(input("Enter text speed: (1-10)"))/4))
 
-#Configure Options
-world.create_entity(Options(screen, int(input("Enter text speed: (1-10)"))/4))
+    #Read Dialog File
+    with open("dialog.txt") as dialogData:
+        dialogDict = readDialogFile(dialogData.read())
 
-#Read Dialog File
-with open("dialog.txt") as dialogData:
-    dialogDict = readDialogFile(dialogData.read())
+    test = world.create_entity(dialogDict["Kaepora Gaebora Monologue"])
+    world.component_for_entity(test, Dialog).Activate()
 
-test = world.create_entity(dialogDict["Kaepora Gaebora Monologue"])
-world.component_for_entity(test, Dialog).Activate()
-
-while 1:
-    #Game loop
-    world.process()
-    inputs = world.get_component(Input)[0][1]
-    print(inputs.buttons)
-    clock.tick(30)
+    while 1:
+        #Game loop
+        world.process()
+        inputs = world.get_component(Input)[0][1]
+        print(inputs.buttons)
+        clock.tick(30)
