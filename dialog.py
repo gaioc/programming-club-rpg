@@ -286,7 +286,7 @@ if __name__ == "main":
     world.create_entity(Options(screen, int(input("Enter text speed: (1-10)"))/4))
 
     #Read Dialog File
-    with open("dialog.txt") as dialogData:
+    with open("assets/data/dialog.txt") as dialogData:
         dialogDict = readDialogFile(dialogData.read())
 
     test = world.create_entity(dialogDict["Kaepora Gaebora Monologue"])
