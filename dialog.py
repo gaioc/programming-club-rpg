@@ -103,7 +103,7 @@ class DialogText(DialogInstance):
         self.text = text
         self.playerOptions = playerOptions
         self.nextDialog = nextDialog
-        self.font = pg.font.Font("ponde___.ttf", 16)
+        self.font = pg.font.Font("fonts/ponde___.ttf", 16)
     
     def Activate(self):
         self.active = True
